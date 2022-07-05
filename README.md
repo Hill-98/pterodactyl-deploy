@@ -1,6 +1,6 @@
 # Pterodactyl Deploy
 
-One click deploy Pterodactyl script
+One click deploy [Pterodactyl](https://pterodactyl.io/) script
 
 ## Usage
 
