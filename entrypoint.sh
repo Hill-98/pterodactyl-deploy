@@ -13,4 +13,3 @@ chown -R www-data:www-data /pterodactyl-panel
 /etc/init.d/nginx start
 
 tail -f /var/log/nginx/nginx.log
-# exec /usr/local/bin/apache2-foreground
