@@ -1,0 +1,26 @@
+services:
+  db:
+    image: "mariadb:10.8"
+    environment:
+      MARIADB_DATABASE: pterodactyl
+      MARIADB_USER: pterodactyl
+      MARIADB_PASSWORD: pterodactyl
+      MARIADB_RANDOM_ROOT_PASSWORD: yes
+      MARIADB_AUTO_UPGRADE: yes
+    volumes:
+      - ./pterodactyl-panel-database:/var/lib/mysql
+    restart: always
+  redis:
+    image: "redis:latest"
+    restart: always
+  app:
+    depends_on:
+      - db
+      - redis
+    build: .
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "${PTERODACTYL_PORT:-8066}:80"
+    volumes:
+      - ./pterodactyl-panel:/pterodactyl-panel
