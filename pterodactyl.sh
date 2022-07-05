@@ -157,12 +157,12 @@ upgrade_main() {
 
 start_main() {
     docker-compose up -d
-    systemctl start pterodactyl-wings
+    systemctl enable --now pterodactyl-wings
 }
 
 stop_main() {
     docker-compose down
-    systemctl stop pterodactyl-wings
+    systemctl disable --now pterodactyl-wings
 }
 
 restart_main() {
